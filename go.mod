@@ -1,4 +1,4 @@
-module github.com/autousers/backend_reserve.git
+module github.com/autousers/backend_reserve
 
 go 1.18
 
