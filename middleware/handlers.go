@@ -10,6 +10,7 @@ import (
 
 	"github.com/autousers/backend_reserve/models"
 	"github.com/joho/godotenv"
+	_ "github.com/lib/pq"
 )
 
 func createConnection() *sql.DB {
@@ -85,7 +86,7 @@ func getAllRooms() ([]models.Rooms, error) {
 	for rows.Next() {
 		var room models.Rooms
 
-		err = rows.Scan(&room.ID, &room.Room_name, &room.Room_desc)
+		err = rows.Scan(&room.ID, &room.Room_name, &room.Room_desc, &room.Created_at)
 
 		if err != nil {
 			log.Fatalf("Failed to scan the rows in database: %v", err)
